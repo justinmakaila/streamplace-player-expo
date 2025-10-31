@@ -1,6 +1,5 @@
 import {
   LivestreamProvider,
-  PlayerProvider,
   StreamplaceProvider,
   ThemeProvider,
 } from "@streamplace/components";
@@ -11,9 +10,7 @@ export default function RootLayout() {
     <ThemeProvider>
       <StreamplaceProvider url={process.env.EXPO_PUBLIC_STREAMPLACE_NODE_URL!}>
         <LivestreamProvider src={process.env.EXPO_PUBLIC_STREAMPLACE_SOURCE!}>
-          <PlayerProvider>
-            <Stack screenOptions={{ headerShown: false }} />
-          </PlayerProvider>
+          <Stack screenOptions={{ headerShown: false }} />
         </LivestreamProvider>
       </StreamplaceProvider>
     </ThemeProvider>
