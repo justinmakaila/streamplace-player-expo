@@ -1,0 +1,19 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - corepack enable pnpm
+        - corepack use pnpm@latest-10
+        - pnpm i
+    build:
+      commands:
+        - npx expo export --platform web
+  artifacts:
+    baseDirectory: dist/
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*
+      - $(npm root --global)/**/*
