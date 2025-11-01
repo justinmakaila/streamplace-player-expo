@@ -1,18 +1,12 @@
 import Stream from "@/components/Stream";
+import { useVolumeSlider } from "@/hooks/useVolumeSlider";
 import {
   LivestreamProvider,
   StreamplaceProvider,
-  useMuted,
-  useSetMuted,
-  useSetVolume,
-  useVolume,
 } from "@streamplace/components";
 
 export function StreamInner() {
-  const isMuted = useMuted();
-  const setIsMuted = useSetMuted();
-  const volume = useVolume();
-  const setVolume = useSetVolume();
+  const { isMuted, setIsMuted, volume, setVolume } = useVolumeSlider();
 
   return (
     <Stream
