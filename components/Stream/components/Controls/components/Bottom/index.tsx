@@ -1,5 +1,5 @@
+import { VolumeSlider, VolumeSliderProps } from "@/components/VolumeSlider";
 import { View } from "@streamplace/components";
-import { VolumeSlider, VolumeSliderProps } from "../VolumeSlider";
 
 export interface BottomProps extends VolumeSliderProps {}
 
