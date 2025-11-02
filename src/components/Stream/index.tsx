@@ -1,10 +1,10 @@
 import { Player, PlayerProvider, useTheme } from "@streamplace/components";
 import { View } from "react-native";
-import Controls, { ControlsProps } from "./components/Controls";
+import { Controls, ControlsProps } from "./components/Controls";
 
 export interface StreamProps extends ControlsProps {}
 
-export default function Stream({
+export function Stream({
   isMuted,
   setIsMuted,
   volume,
@@ -38,3 +38,5 @@ export default function Stream({
     </PlayerProvider>
   );
 }
+
+export default Stream;

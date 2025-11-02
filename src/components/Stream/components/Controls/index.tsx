@@ -1,4 +1,4 @@
-import { View, zero } from "@streamplace/components";
+import { View } from "@streamplace/components";
 import { useCallback, useRef, useState } from "react";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import Animated, {
@@ -10,15 +10,13 @@ import { scheduleOnRN } from "react-native-worklets";
 import { Bottom, BottomProps } from "./components/Bottom";
 import styles from "./styles";
 
-const { layout, position, h, w } = zero;
-
 const FADE_IN_DURATION = 200;
 const FADE_OUT_DURATION = 400;
 const FADE_OUT_DELAY = 500;
 
 export interface ControlsProps extends BottomProps {}
 
-export default function Controls({
+export function Controls({
   isMuted,
   setIsMuted,
   volume,
@@ -54,17 +52,9 @@ export default function Controls({
   return (
     <GestureDetector gesture={hover}>
       <>
-        <View
-          style={[layout.position.absolute, h.percent[100], w.percent[100]]}
-        >
+        <View style={styles.container}>
           <Animated.View
-            style={[
-              layout.position.absolute,
-              position.bottom[0],
-              w.percent[100],
-              styles.bottomControlsContainer,
-              animatedFadeStyle,
-            ]}
+            style={[styles.bottomControlsContainer, animatedFadeStyle]}
           >
             <Bottom
               isMuted={isMuted}
@@ -78,3 +68,5 @@ export default function Controls({
     </GestureDetector>
   );
 }
+
+export default Controls;

@@ -1,4 +1,4 @@
-import Stream from "@/components/Stream";
+import { Stream } from "@/components/Stream";
 import { useVolumeSlider } from "@/hooks/useVolumeSlider";
 import {
   LivestreamProvider,
