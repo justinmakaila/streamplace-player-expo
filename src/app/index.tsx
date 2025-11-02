@@ -1,15 +1,11 @@
-import { Stream } from "@/components/Stream";
+import StreamUI from "@/components/Stream";
 import { useVolumeSlider } from "@/hooks/useVolumeSlider";
-import {
-  LivestreamProvider,
-  StreamplaceProvider,
-} from "@streamplace/components";
 
-export function StreamInner() {
+export function Stream() {
   const { isMuted, setIsMuted, volume, setVolume } = useVolumeSlider();
 
   return (
-    <Stream
+    <StreamUI
       isMuted={isMuted}
       setIsMuted={setIsMuted}
       volume={volume}
@@ -18,12 +14,4 @@ export function StreamInner() {
   );
 }
 
-export default function Index() {
-  return (
-    <StreamplaceProvider url={process.env.EXPO_PUBLIC_STREAMPLACE_NODE_URL!}>
-      <LivestreamProvider src={process.env.EXPO_PUBLIC_STREAMPLACE_SOURCE!}>
-        <StreamInner />
-      </LivestreamProvider>
-    </StreamplaceProvider>
-  );
-}
+export default Stream;
